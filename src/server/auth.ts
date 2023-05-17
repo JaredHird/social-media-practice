@@ -45,6 +45,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({
