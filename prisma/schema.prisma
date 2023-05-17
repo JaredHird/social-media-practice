@@ -2,32 +2,33 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
-  relationMode = "prisma"
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
 }
 
 model Tweet {
-    id String @id @default(uuid())
-    userId String
-    content String
+    id        String   @id @default(uuid())
+    userId    String
+    content   String
     createdAt DateTime @default(now())
 
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
     likes Like[]
 
+    @@unique([createdAt, id])
     @@index([userId])
 }
 
 model Like {
-    userId String
+    userId  String
     tweetId String
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    Tweet Tweet @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+    user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    Tweet   Tweet  @relation(fields: [tweetId], references: [id], onDelete: Cascade)
 
     @@id([userId, tweetId])
     @@index([userId])
@@ -72,10 +73,12 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    tweets        Tweet[]
-    likes         Like[]
-    followers     User[] @relation(name: "Followers")
-    follows       User[] @relation(name: "Followers")
+
+    // Non-Next Auth
+    tweets    Tweet[]
+    likes     Like[]
+    followers User[]  @relation(name: "Followers")
+    follows   User[]  @relation(name: "Followers")
 }
 
 model VerificationToken {
