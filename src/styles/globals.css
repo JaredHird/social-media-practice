@@ -36,3 +36,7 @@ textarea {
 .link-hover:hover {
   background-color: #1b1b1b;
 }
+
+.header {
+  background-color: #121212;
+}
