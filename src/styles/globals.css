@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #121212;
+  color: #e2e2e2;
+}
+
+textarea {
+  background-color: #121212;
+}
+
+.border-x,
+.border-b {
+  border-color: #353535;
+}
+
+.border-active {
+  border-color: #00b3a6;
+}
+
+.tab-hover:hover {
+  background-color: #141414;
+  color: #00b3a6;
+}
+
+.post-btn {
+  background-color: #00b3a6;
+}
+
+.post-btn:hover {
+  background-color: #017374;
+}
+
+.link-hover:hover {
+  background-color: #1b1b1b;
+}

@@ -94,7 +94,7 @@ function Form() {
           className="flex-grow resize-none overflow-hidden p-4 text-lg outline-none"
         />
       </div>
-      <Button className="self-end">Tweet</Button>
+      <Button className="self-end">Post</Button>
     </form>
   );
 }
